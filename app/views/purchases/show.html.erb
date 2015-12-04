@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<%if @purchase.file_url %>
+<p>
+  <strong>File url:</strong>
+  <%= @purchase.file_url %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @purchase.comments %>
+</p>
+<%end%>
+<%= link_to 'Edit', edit_purchase_path(@purchase) %> |
+<%= link_to 'Back', purchases_path %>

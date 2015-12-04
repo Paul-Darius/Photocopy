@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>List of users</h1>
+<%= link_to "User Statistics", "/listofusers/statisticsuser" %>
+
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>E-mail</th>
+    <th>Ban User</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.email %></td>
+        <td><%= link_to "Purchases", "/listofusers/purchasesofuser/?id="+user.id.to_s %></td>
+        <td><%= link_to "Ban user", "/listofusers/banuser/?id="+user.id.to_s, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+<br>
