@@ -1,7 +1,6 @@
 class PurchasesController < ApplicationController
   before_action :set_purchase, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-
   # GET /purchases
   # GET /purchases.json
   def index
@@ -15,6 +14,8 @@ class PurchasesController < ApplicationController
   # GET /purchases/1
   # GET /purchases/1.json
   def show
+    @comment = Comment.new
+    @comments = Comment.where(purchase_id: @purchase.id)
   end
 
   # GET /purchases/new
@@ -69,7 +70,7 @@ class PurchasesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_purchase
-      @purchase = Purchase.find_by_sql("SELECT * FROM purchases WHERE user_id = " + current_user.id.to_s + " AND id = " +params[:id])
+      @purchase = Purchase.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

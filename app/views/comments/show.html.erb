@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Detail:</strong>
+  <%= @comment.detail %>
+</p>
+
+<p>
+  <strong>Commemt date:</strong>
+  <%= @comment.created_at %>
+</p>
+
+<p>
+  <strong>Purchase:</strong>
+  <%= @comment.purchase.file_url %>
+</p>
+
+<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<%= link_to 'Back', comments_path %>

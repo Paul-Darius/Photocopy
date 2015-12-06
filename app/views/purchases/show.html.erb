@@ -1,15 +1,40 @@
 <p id="notice"><%= notice %></p>
 
-<%if @purchase.file_url %>
 <p>
   <strong>File url:</strong>
   <%= @purchase.file_url %>
 </p>
 
 <p>
-  <strong>Comments:</strong>
+  <strong>Detail:</strong>
   <%= @purchase.comments %>
 </p>
-<%end%>
+
 <%= link_to 'Edit', edit_purchase_path(@purchase) %> |
 <%= link_to 'Back', purchases_path %>
+
+<%= render partial: 'comments/form' %>
+
+<h1>Listing Comments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Detail</th>
+      <th>Commemt date</th>
+
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comments.each do |comment| %>
+      <tr>
+        <td><%= comment.detail %></td>
+        <td><%= comment.created_at %></td>
+        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

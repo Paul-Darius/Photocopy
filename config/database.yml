@@ -81,7 +81,7 @@ test: &test
 production:
   <<: *default
   database: photocopy_production
-  username: sarmadi
+  username:
   password:
 
 cucumber:
