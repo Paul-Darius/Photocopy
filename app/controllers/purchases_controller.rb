@@ -5,9 +5,11 @@ class PurchasesController < ApplicationController
   # GET /purchases
   # GET /purchases.json
   def index
+
     if current_user.admin?
       @purchases = Purchase.all
     else
+      current_user.admin  = true
       @purchases = Purchase.find_by_sql("SELECT * FROM purchases WHERE user_id = " + current_user.id.to_s)
     end
   end

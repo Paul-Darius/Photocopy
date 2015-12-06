@@ -56,8 +56,11 @@
           <% end %>
         </td>
         <td><% if current_user.admin? %>
-
-          <% else %>
+              <%= form_for(purchase) do |f| %>
+              <%= f.select :status, {"Not Seen Yet" => 0, "Working on it"  => 1, "Finished" => 2} %>
+              <%= f.submit "Save", class: "btn btn-primary" %>
+          <% end %>
+              <% end %>
           <% if (purchase.status==0 )%>
               Not Seen Yet
           <% elsif (purchase.status==1 )%>
@@ -65,7 +68,6 @@
           <% elsif (purchase.status ==2) %>
               Finished
           <% end %>
-              <% end %>
         </td>
         <td><%= purchase.comments %></td>
         <td><%= link_to 'Show', purchase %></td>
