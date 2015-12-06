@@ -11,15 +11,28 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :file_url %><br>
-    <%= f.text_field :file_url %>
-  </div>
-  <div class="field">
+    <div class="well">
+      <%= f.label :attachment %>
+      <%= f.file_field :attachment %>
+      </div>
+    <div class="well">
+    <%= f.label :From_Page %><br>
+    <%= f.number_field :from_page  %><br>
+    <%= f.label :To_Page %><br>
+    <%= f.number_field :to_page  %><br>
+    <%= f.label :Number_of_pdf_pages_printed_per_page %><br>
+    <%= f.select :number_pages_per_pages, {"1" => 1, "2" => 2, "4" => 4}  %><br>
+    <%= f.label :Black_and_White %><br>
+    <%= f.check_box(:bandw, {}, "Black and white", "Color") %><br>
+    <%= f.label :Binding %><br>
+    <%= f.r (:binding, {}, "Black and white", "Color") %><br>
+    <%= f.label :Tape %><br>
+    <%= f.select :tape, {"With tape" => true , "without tape" =>false } %><br>
     <%= f.label :comments %><br>
-    <%= f.text_field :comments %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <%= f.text_area :comments %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Save", class: "btn btn-primary" %>
+    </div>
 <% end %>

@@ -54,5 +54,7 @@ group :development do
          gem 'rspec-rails'
   end
 
+  gem 'carrierwave'
+  gem 'bootstrap-sass'
 end
 

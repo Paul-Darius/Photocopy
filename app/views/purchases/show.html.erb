@@ -1,15 +1,37 @@
 <p id="notice"><%= notice %></p>
 
-<%if @purchase.file_url %>
 <p>
-  <strong>File url:</strong>
-  <%= @purchase.file_url %>
-</p>
 
-<p>
-  <strong>Comments:</strong>
-  <%= @purchase.comments %>
+<table>
+  <thead>
+  <tr>
+    <th>Download Link</th>
+    <th>From Page</th>
+    <th>To Page</th>
+    <th>Number of pages printed per page</th>
+    <th>Black and White</th>
+    <th>Binding</th>
+    <th>Tape</th>
+    <th>Comments</th>
+    <th colspan="5"></th>
+  </tr>
+  </thead>
+  <tbody>
+
+<tr>
+<td><%= link_to "Download Purchase", @purchase.attachment_url %></td>
+<td><%= @purchase.from_page.to_s  %></td>
+<td><%= @purchase.to_page  %></td>
+<td><%= @purchase.number_pages_per_pages  %></td>
+<td><%= @purchase.bandw  %></td>
+<td><%= @purchase.binding  %></td>
+<td><%= @purchase.tape  %></td>
+<td><%= @purchase.status  %></td>
+<td><%= @purchase.comments %></td>
+<td><%= @purchase.comments %></td>
+</tr>
+</tbody>
+    </table>
 </p>
-<%end%>
 <%= link_to 'Edit', edit_purchase_path(@purchase) %> |
 <%= link_to 'Back', purchases_path %>

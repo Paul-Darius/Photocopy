@@ -15,6 +15,7 @@ class PurchasesController < ApplicationController
   # GET /purchases/1
   # GET /purchases/1.json
   def show
+    @purchase=Purchase.find(params[:id])
   end
 
   # GET /purchases/new
@@ -24,6 +25,8 @@ class PurchasesController < ApplicationController
 
   # GET /purchases/1/edit
   def edit
+    @purchase=Purchase.find(params[:id])
+
   end
 
   # POST /purchases
@@ -45,6 +48,7 @@ class PurchasesController < ApplicationController
   # PATCH/PUT /purchases/1
   # PATCH/PUT /purchases/1.json
   def update
+    @purchase=Purchase.find(params[:id])
     respond_to do |format|
       if @purchase.update(purchase_params)
         format.html { redirect_to @purchase, notice: 'Purchase was successfully updated.' }
@@ -59,6 +63,7 @@ class PurchasesController < ApplicationController
   # DELETE /purchases/1
   # DELETE /purchases/1.json
   def destroy
+    @purchase=Purchase.find(params[:id])
     @purchase.destroy
     respond_to do |format|
       format.html { redirect_to purchases_url, notice: 'Purchase was successfully destroyed.' }
@@ -74,6 +79,16 @@ class PurchasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def purchase_params
-      params.require(:purchase).permit(:file_url, :comments)
+      params.require(:purchase).permit( :created_at,
+      :updated_at,
+      :user_id,
+      :status,
+      :from_page,
+      :to_page,
+      :number_pages_per_pages,
+      :bandw,
+      :binding,
+      :tape,
+      :comments)
     end
 end

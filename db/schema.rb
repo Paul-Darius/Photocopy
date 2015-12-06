@@ -11,18 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151107154928) do
+ActiveRecord::Schema.define(version: 20151205145504) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "purchases", force: :cascade do |t|
-    t.string   "file_url"
     t.string   "comments"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.integer  "user_id"
     t.integer  "status"
+    t.integer  "from_page"
+    t.integer  "to_page"
+    t.integer  "number_pages_per_pages"
+    t.boolean  "bandw"
+    t.boolean  "binding"
+    t.boolean  "tape"
   end
 
   create_table "users", force: :cascade do |t|
