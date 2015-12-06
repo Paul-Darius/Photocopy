@@ -14,12 +14,9 @@ class PurchasesController < ApplicationController
   # GET /purchases/1
   # GET /purchases/1.json
   def show
-<<<<<<< HEAD
+    @purchase=Purchase.find(params[:id])
     @comment = Comment.new
     @comments = Comment.where(purchase_id: @purchase.id)
-=======
-    @purchase=Purchase.find(params[:id])
->>>>>>> c63c5deb2a4bdc9cc60259b69a838071f36364a9
   end
 
   # GET /purchases/new
