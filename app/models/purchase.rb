@@ -1,3 +1,4 @@
 class Purchase < ActiveRecord::Base
-  validates_presence_of :file_url
+  mount_uploader :attachment, AttachmentUploader
+  #validates_presence_of :attachment, presence: true
 end

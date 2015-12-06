@@ -5,16 +5,29 @@
 <table>
   <thead>
     <tr>
-      <th>File url</th>
+      <th>Download Link</th>
+      <th>From Page</th>
+      <th>To Page</th>
+      <th>Number of pages printed per page</th>
+      <th>Black and White</th>
+      <th>Binding</th>
+      <th>Tape</th>
       <th>Comments</th>
-      <th colspan="3"></th>
+      <th colspan="5"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @purchases.each do |purchase| %>
       <tr>
-        <td><%= purchase.file_url %></td>
+        <td><%= link_to "Download Purchase", purchase.attachment_url %></td>
+        <td><%= purchase.from_page.to_s  %></td>
+        <td><%= purchase.to_page  %></td>
+        <td><%= purchase.number_pages_per_pages  %></td>
+        <td><%= purchase.bandw  %></td>
+        <td><%= purchase.binding  %></td>
+        <td><%= purchase.tape  %></td>
+        <td><%= purchase.status  %></td>
         <td><%= purchase.comments %></td>
         <td><%= link_to 'Show Detail', purchase %></td>
         <td><%= link_to 'Edit', edit_purchase_path(purchase) %></td>

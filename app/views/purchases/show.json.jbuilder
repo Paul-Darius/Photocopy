@@ -1,1 +1,11 @@
-json.extract! @purchase, :id, :file_url, :comments, :created_at, :updated_at
+json.extract! @purchase,  :created_at,
+              :updated_at,
+              :user_id,
+              :status,
+              :from_page,
+              :to_page,
+              :number_pages_per_pages,
+              :bandw,
+              :binding,
+              :tape,
+              :comments
