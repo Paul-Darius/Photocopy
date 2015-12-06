@@ -13,7 +13,7 @@
     <th>Binding</th>
     <th>Tape</th>
     <th>Status</th>
-    <th>Comments</th>
+    <th>Other</th>
     <th colspan="5"></th>
   </tr>
   </thead>
@@ -65,5 +65,47 @@
 </tbody>
     </table>
 </p>
+
+<!-- DISCUSSION PART -->
+
+
+<p>
+  <strong>Detail:</strong>
+  <%= @purchase.comments %>
+</p>
+
 <%= link_to 'Edit', edit_purchase_path(@purchase) %> |
+<%= link_to 'Back', purchases_path %>
+
+<%= render partial: 'comments/form' %>
+
+<h1>Listing Comments</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Detail</th>
+    <th>Commemt date</th>
+
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @comments.each do |comment| %>
+      <tr>
+        <td><%= comment.text %></td>
+        <td><%= comment.created_at %></td>
+        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<!-- OK LET'S JUST ADD THE FORMULAR PART FOR COMMENT -->
+
+
+
+    <%= link_to 'Edit', edit_purchase_path(@purchase) %> |
 <%= link_to 'Back', purchases_path %>

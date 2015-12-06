@@ -1,7 +1,7 @@
 class PurchasesController < ApplicationController
   before_action :set_purchase, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-
+  has_many :comments
   # GET /purchases
   # GET /purchases.json
   def index
@@ -9,7 +9,6 @@ class PurchasesController < ApplicationController
     if current_user.admin?
       @purchases = Purchase.all
     else
-      current_user.admin  = true
       @purchases = Purchase.find_by_sql("SELECT * FROM purchases WHERE user_id = " + current_user.id.to_s)
     end
   end
@@ -17,7 +16,7 @@ class PurchasesController < ApplicationController
   # GET /purchases/1
   # GET /purchases/1.json
   def show
-    @purchase=Purchase.find(params[:id])
+    @comments = Comment.find_by_sql("select * from comment where purchase_id ="+params[:id])
   end
 
   # GET /purchases/new
@@ -39,7 +38,7 @@ class PurchasesController < ApplicationController
     @purchase.user_id = current_user.id
     respond_to do |format|
       if @purchase.save
-        format.html { redirect_to @purchase, notice: 'Purchase was successfully created.' }
+        format.html { redirect_to @purchase, notice: 'Purchase was successfully created.', action: 'index' }
         format.json { render :show, status: :created, location: @purchase }
       else
         format.html { render :new }
@@ -66,18 +65,32 @@ class PurchasesController < ApplicationController
   # DELETE /purchases/1
   # DELETE /purchases/1.json
   def destroy
-    @purchase=Purchase.find(params[:id])
-    @purchase.destroy
-    respond_to do |format|
-      format.html { redirect_to purchases_url, notice: 'Purchase was successfully destroyed.' }
-      format.json { head :no_content }
+    if current_user.admin?
+      @purchase=Purchase.find(params[:id])
+      @purchase.destroy
+      respond_to do |format|
+        format.html { redirect_to purchases_url, notice: 'Purchase was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to notice: 'Nothing to do here.', :action => 'index' }
+        format.json { head :no_content }
     end
-  end
+    end
+    end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_purchase
-      @purchase = Purchase.find_by_sql("SELECT * FROM purchases WHERE user_id = " + current_user.id.to_s + " AND id = " +params[:id])
+      @purchase2 = Purchase.find(params[:id])
+      if current_user.id == @purchase2.user_id || current_user.admin?
+        @purchase = Purchase.find(params[:id])
+      else
+        respond_to do |format|
+          format.html { redirect_to notice: 'Nothing to do here.', :action => 'index' }
+        end
+        end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
