@@ -12,6 +12,7 @@
       <th>Black and White</th>
       <th>Binding</th>
       <th>Tape</th>
+      <th>Status</th>
       <th>Comments</th>
       <th colspan="5"></th>
     </tr>
@@ -19,15 +20,53 @@
 
   <tbody>
     <% @purchases.each do |purchase| %>
+
+
       <tr>
         <td><%= link_to "Download Purchase", purchase.attachment_url %></td>
-        <td><%= purchase.from_page.to_s  %></td>
-        <td><%= purchase.to_page  %></td>
+        <td><% if purchase.from_page.blank? %>
+              First page
+          <% else %>
+              <%= purchase.from_page %>
+          <% end %>
+        </td>
+        <td><% if purchase.to_page.blank? %>
+              Last page
+          <% else %>
+              <%= purchase.to_page %>
+          <% end %>
+        </td>
         <td><%= purchase.number_pages_per_pages  %></td>
-        <td><%= purchase.bandw  %></td>
-        <td><%= purchase.binding  %></td>
-        <td><%= purchase.tape  %></td>
-        <td><%= purchase.status  %></td>
+        <td><% if purchase.bandw = false %>
+              Colored
+          <% else %>
+              Black and White
+          <% end %>
+        </td>
+        <td><% if purchase.binding==false %>
+              Colored
+          <% else %>
+              Black and White
+          <% end %>
+        </td>
+        <td><% if purchase.tape == true%>
+              With tape
+          <% else %>
+              Without tape
+          <% end %>
+        </td>
+        <td><% if current_user.admin? %>
+
+          <% else %>
+          <% if (purchase.status==0 )%>
+              Not Seen Yet
+          <% elsif (purchase.status==1 )%>
+              Working on it
+          <% elsif (purchase.status ==2) %>
+              Finished
+          <% end %>
+              <% end %>
+        </td>
         <td><%= purchase.comments %></td>
         <td><%= link_to 'Show Detail', purchase %></td>
         <td><%= link_to 'Edit', edit_purchase_path(purchase) %></td>

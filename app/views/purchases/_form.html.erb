@@ -32,7 +32,7 @@
     <%= f.label :Black_and_White %><br>
     <%= f.check_box(:bandw, {}, "Black and white", "Color") %><br>
     <%= f.label :Binding %><br>
-    <%= f.r (:binding, {}, "Black and white", "Color") %><br>
+    <%= f.select :binding, {"Black and white" => true, "Color"  => false} %><br>
     <%= f.label :Tape %><br>
     <%= f.select :tape, {"With tape" => true , "without tape" =>false } %><br>
 >>>>>>> c63c5deb2a4bdc9cc60259b69a838071f36364a9
