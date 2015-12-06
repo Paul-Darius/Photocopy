@@ -92,6 +92,8 @@ class PurchasesController < ApplicationController
       :bandw,
       :binding,
       :tape,
-      :comments)
+      :comments,
+      :attachment
+      )
     end
 end
