@@ -11,22 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20151206183016) do
-
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
-    t.text     "detail"
-    t.datetime "comment_date"
-    t.integer  "purchase_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "text"
+    t.integer  "purchase_id_id"
+    t.integer  "user_id_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
-
-  add_index "comments", ["purchase_id"], name: "index_comments_on_purchase_id", using: :btree
 
   create_table "purchases", force: :cascade do |t|
     t.string   "comments"
@@ -40,6 +36,7 @@ ActiveRecord::Schema.define(version: 20151206183016) do
     t.boolean  "bandw"
     t.boolean  "binding"
     t.boolean  "tape"
+    t.string   "attachment"
   end
 
   create_table "users", force: :cascade do |t|
@@ -56,10 +53,13 @@ ActiveRecord::Schema.define(version: 20151206183016) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.boolean  "admin",                  default: false
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
   end
 
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "comments", "purchases"
 end

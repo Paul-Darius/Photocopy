@@ -1,5 +1,4 @@
-<p id="notice"><%= notice %></p>
-
+<div class="container">
 <h1>Listing Purchases</h1>
 
 <table>
@@ -13,7 +12,6 @@
       <th>Binding</th>
       <th>Tape</th>
       <th>Status</th>
-      <th>Other</th>
       <th>Discussion</th>
       <% if current_user.admin? %>
          <th>Destroy</th>
@@ -74,18 +72,10 @@
           <% end %>
               <% end %>
         </td>
-        <td><%= purchase.comments %></td>
-<<<<<<< HEAD
-        <td><%= link_to 'Show Detail', purchase %></td>
-        <td><%= link_to 'Edit', edit_purchase_path(purchase) %></td>
-        <td><%= link_to 'Destroy', purchase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
-=======
         <td><%= link_to 'Show', purchase %></td>
         <% if current_user.admin? %>
         <td><%= link_to 'Destroy', purchase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
->>>>>>> 57ef46507b75b7b73aeca610c0f0f6b2874d1fbe
       </tr>
     <% end %>
   </tbody>
@@ -94,3 +84,4 @@
 <br>
 
 <%= link_to 'New Purchase', new_purchase_path %></br>
+</div>
