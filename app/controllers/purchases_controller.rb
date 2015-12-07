@@ -1,7 +1,6 @@
 class PurchasesController < ApplicationController
   before_action :set_purchase, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  has_many :comments
   # GET /purchases
   # GET /purchases.json
   def index
@@ -9,14 +8,15 @@ class PurchasesController < ApplicationController
     if current_user.admin?
       @purchases = Purchase.all
     else
-      @purchases = Purchase.find_by_sql("SELECT * FROM purchases WHERE user_id = " + current_user.id.to_s)
+      @purchases = Purchase.find_by_sql("SELECT * FROM Purchases WHERE user_id = " + current_user.id.to_s)
     end
   end
 
   # GET /purchases/1
   # GET /purchases/1.json
   def show
-    @comments = Comment.find_by_sql("select * from comment where purchase_id ="+params[:id])
+    @comments = Comment.find_by_sql("select * from Comments where purchase_id_id ="+@purchase.id.to_s)
+    @comment = Comment.new(purchase_id_id: @purchase.id, user_id_id: current_user.id )
   end
 
   # GET /purchases/new
