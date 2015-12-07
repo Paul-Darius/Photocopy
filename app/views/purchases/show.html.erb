@@ -71,8 +71,9 @@
 <table>
   <thead>
   <tr>
-    <th>Detail</th>
-    <th>Comment date</th>
+    <th>User</th>
+    <th>Comment</th>
+    <th>Date</th>
 
     <th colspan="3"></th>
   </tr>
@@ -81,10 +82,12 @@
   <tbody>
   <% @comments.each do |comment| %>
       <tr>
+        <td><%= User.find(comment.user_id_id).email %></td>
         <td><%= comment.text %></td>
         <td><%= comment.created_at %></td>
-        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+        <% if current_user.admin? %>
         <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
   <% end %>
   </tbody>
