@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  get 'option/index'
+
+  get 'option/cover'
+
+  get 'option/binder'
+
+  get 'option/index'
+
+  get 'option/paper'
+
+  get 'terms/index'
+
   resources :comments
   resources :comments
   devise_for :users

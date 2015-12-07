@@ -10,6 +10,7 @@
  * at the top of the compiled file, but it's generally better to create a new
  * file per style scope.
  *
+ *= require bootstrap
  *= require_self
  *= require_tree .
  */
@@ -17,7 +18,7 @@
 /* START_HIGHLIGHT */
 #banner {
   background: #dbf2ff;
-  padding: 10px;
+  padding: 60px;
   border-bottom: 2px solid;
   font: small-caps 40px/40px "Times New Roman", serif;
   color: #5d6add;

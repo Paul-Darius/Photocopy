@@ -1,4 +1,4 @@
-<%= form_for(@purchase) do |f| %>
+<%= form_for [@purchase], html: {multipart: true} do |f| %>
   <% if @purchase.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@purchase.errors.count, "error") %> prohibited this purchase from being saved:</h2>
@@ -12,9 +12,9 @@
   <% end %>
 
     <div class="well">
-      <%= f.label :attachment %>
-      <%= f.file_field :attachment %>
-      </div>
+    <%= f.label :attachment %>
+    <%= f.file_field :attachment %>
+    </div>
     <div class="well">
     <%= f.label :From_Page %><br>
     <%= f.number_field :from_page  %><br>

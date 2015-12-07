@@ -9,6 +9,7 @@ json.array!(@purchases) do |purchase|
                 :bandw,
                 :binding,
                 :tape,
-                :comments
+                :comments,
+                :attachment
   json.url purchase_url(purchase, format: :json)
 end

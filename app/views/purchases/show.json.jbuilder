@@ -8,4 +8,5 @@ json.extract! @purchase,  :created_at,
               :bandw,
               :binding,
               :tape,
-              :comments
+              :comments,
+              :attachment
