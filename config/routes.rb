@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   get 'option/index'
 
   get 'option/cover'
@@ -11,7 +12,6 @@ Rails.application.routes.draw do
 
   get 'terms/index'
 
-  resources :comments
   resources :comments
   devise_for :users
   resources :purchases

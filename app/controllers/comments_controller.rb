@@ -1,6 +1,10 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
+<<<<<<< HEAD
 
+=======
+  belongs_to :purchase
+>>>>>>> 57ef46507b75b7b73aeca610c0f0f6b2874d1fbe
   # GET /comments
   # GET /comments.json
   def index
@@ -28,7 +32,11 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
+<<<<<<< HEAD
         format.html { redirect_to purchase_path(@comment.purchase_id), notice: 'Comment was successfully created.' }
+=======
+        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
+>>>>>>> 57ef46507b75b7b73aeca610c0f0f6b2874d1fbe
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new }
@@ -69,6 +77,10 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
+<<<<<<< HEAD
       params.require(:comment).permit(:detail, :commemt_date, :purchase_id)
+=======
+      params.require(:comment).permit(:text, :purchase_id, :user_id)
+>>>>>>> 57ef46507b75b7b73aeca610c0f0f6b2874d1fbe
     end
 end

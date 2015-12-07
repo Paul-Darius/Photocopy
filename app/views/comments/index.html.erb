@@ -5,9 +5,15 @@
 <table>
   <thead>
     <tr>
+<<<<<<< HEAD
       <th><b>Comment</b></th>
       <th>Commemt date</th>
       <th>E-book</th>
+=======
+      <th>Text</th>
+      <th>Purchase</th>
+      <th>User</th>
+>>>>>>> 57ef46507b75b7b73aeca610c0f0f6b2874d1fbe
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,9 +21,15 @@
   <tbody>
     <% @comments.each do |comment| %>
       <tr>
+<<<<<<< HEAD
         <td><%= comment.detail %></td>
         <td><%= comment.created_at %></td>
         <td><%= comment.purchase.file_url %></td>
+=======
+        <td><%= comment.text %></td>
+        <td><%= comment.purchase_id %></td>
+        <td><%= comment.user_id %></td>
+>>>>>>> 57ef46507b75b7b73aeca610c0f0f6b2874d1fbe
         <td><%= link_to 'Show', comment %></td>
         <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
         <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -28,5 +40,8 @@
 
 <br>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 57ef46507b75b7b73aeca610c0f0f6b2874d1fbe
 <%= link_to 'New Comment', new_comment_path %>
