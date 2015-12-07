@@ -76,7 +76,8 @@ class CommentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
-      if @comment.user_id_id = current_user.id || current_user.admin?
+      @comment2 = Comment.find(params[:id])
+      if @comment2.user_id_id = current_user.id || current_user.admin?
       @comment = Comment.find(params[:id])
       end
     end
