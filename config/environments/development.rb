@@ -46,8 +46,8 @@ Rails.application.configure do
       :address              => "mail.cs.ait.ac.th",
       :domain               => "cs.ait.ac.th",
       :port                 =>  25,
-      :user_name            => "st117748",
-      :password             => 'SLw4$rYf',
+      :user_name            => "",
+      :password             => '',
       :authentication       => 'plain',
       :enable_starttls_auto => true
   }
