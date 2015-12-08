@@ -25,7 +25,7 @@
 
 
       <tr>
-        <td><%= link_to "Download Purchase", purchase.attachment_url %></td>
+        <td><%= link_to "Download Purchase", '/project'+purchase.attachment_url %></td>
         <td><% if purchase.from_page.blank? %>
               First page
           <% else %>

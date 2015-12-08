@@ -53,7 +53,8 @@ group :development do
          gem 'launchy'
          gem 'rspec-rails'
   end
-
+  
+  gem 'rmagick', '~> 2.15.4'
   gem 'carrierwave', '~> 0.9'
   gem 'bootstrap-sass', '~> 2.3.2'
   gem 'bootstrap3-rails'

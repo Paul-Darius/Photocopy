@@ -82,13 +82,17 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-
-  config.action_mailer.default_url_options = {:host => 'web5.cs.ait.ac.th'}
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-      :address => "127.0.0.1",
-      :port    => 25,
-      :domain  => 'web5.cs.ait.ac.th'
+  
+  config.action_mailer.default_url_options = {:host=>'web5.cs.ait.ac.th'}
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings ={
+      :address              => "mail.cs.ait.ac.th",
+      :domain               => "cs.ait.ac.th",
+      :port                 =>  25,
+      :user_name            => "st117744",
+      :password             => '!K33nupk!',
+      :authentication       => 'plain',
+      :enable_starttls_auto => true
   }
 
 end
