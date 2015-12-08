@@ -1,28 +1,9 @@
-== README
+During my first semester at the Asian Institute of Technology, I had the opportunity to practice the art of web programming by writing a software with Ruby on Rails, using the Model-View-Controller architectural pattern. Our teacher, Matthew Dailey, taught us in particular the importance of testing and the agile software development.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This software is made to help photocopy shop’s owners to make their life easier.
 
-Things you may want to cover:
+When a customer goes to a photocopy shop to print a document or a full book, he often has to come to the shop several times, and has to explain exactly what he wants. Sometimes the shop is full and the customer has to wait for a long time. Moreover, misunderstandings happen quite often between the customer and the vendor. Those problems are extremely common in an international university like AIT, where everyday dozens of students have to go to the local photocopy shop whose owner does not speak the language of his customers.
+Hence I asked myself : “how to make this process more efficient ?”
+I discovered that a web application could be a good solution. A student from AIT who wants to print any document just has to sign up, create a purchase online with the options he wants. Then, the shop owner sees the purchase, builds the printed version according to the options selected by the customer, and updates the status of the purchase to “Work done”. The customer sees the updated status, and just has to come once to the shop, to pay and to get the printed document.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+That is what the web application I developed does. The sources for it are available here. Some parts of the code may be readapted to suit your own server.
