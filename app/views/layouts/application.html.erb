@@ -12,17 +12,6 @@
   <%= image_tag "logo.png" %>
   <%= @page_title || "Photocopy Shop WebSite" %>
 </div>
-<!-- Static navba
-   <nav class="navbar navbar-default navbar-static-top">
-     <div class="container">
-       <div class="navbar-header">
-       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-           <span class="sr-only">Toggle navigation</span>
-           <span class="icon-bar"></span>
-           <span class="icon-bar"></span>
-           <span class="icon-bar"></span>
-         </button>
-       </div><!--navbar-header -->
        <div id="navbar" class="navbar">
          <ul class="nav navbar-nav">
            <li class="active"><%= link_to "Home", root_path %></li>
@@ -37,14 +26,6 @@
            <li><%= link_to "Book Cover Type", option_cover_path %></li>
            <li><%= link_to "Book Binder Type", option_binder_path %></li>
            <li><%= link_to "Paper Type", option_paper_path %></li>
-           <!--<li class="dropdown">
-             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Options<span class="caret"></span></a>
-             <ul class="dropdown-menu">
-               <li><%= link_to "Book Cover Type", option_cover_path %></li>
-               <li><%= link_to "Book Binder Type", option_binder_path %></li>
-               <li><%= link_to "Paper Type", option_paper_path %></li>
-             </ul>
-           </li>-->
            <li><%= link_to "Contact Us", option_index_path%></li>
          </ul>
          <ul class="nav navbar-nav navbar-right">
